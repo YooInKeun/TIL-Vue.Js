@@ -8,7 +8,7 @@
       </ul>
       <br>
     </div>
-    <button>등록</button>
+    <router-link to="/todo/add">등록</router-link>
   </div>
 </template>
 
