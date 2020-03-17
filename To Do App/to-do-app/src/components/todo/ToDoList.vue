@@ -4,8 +4,9 @@
       <ul>
         <li><h2>할 일 {{ index }} 번</h2></li>
        <h3>제목: {{ todo.title }}</h3>
-       <h3>{{ todo.content }}</h3>
+       <h3>내용: {{ todo.content }}</h3>
       </ul>
+      <button @click="moveToToDoUpdate(todo)">수정</button>
       <br>
     </div>
     <router-link to="/todo/add">등록</router-link>
@@ -14,7 +15,7 @@
 
 <script>
 export default {
-  name: 'ToDoList',
+  name: 'toDoList',
   data () {
     return {
       todos: [
@@ -48,6 +49,17 @@ export default {
     fetch_all_data: function () {
       // 데이터를 받았다고 가정
     },
+    moveToToDoUpdate(todo) {
+      this.$router.push({
+        name: "toDoUpdate",
+        param: {
+          todo: todo
+        },
+        query: {
+          todo_id: todo.id
+        }
+      })
+    }
   },
 }
 </script>

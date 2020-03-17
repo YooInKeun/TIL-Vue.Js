@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'ToDoList',
+  name: 'toDoAdd',
   data () {
     return {
         title: null,
@@ -27,10 +27,14 @@ export default {
           console.log(this.title);
           console.log(this.content);
           // 통신 부분
-          
+
           alert("등록 완료 되었습니다");
           this.title = null;
           this.content = null;
+
+          this.$router.push({
+            name: "toDoList"
+          });
       }
   },
 }

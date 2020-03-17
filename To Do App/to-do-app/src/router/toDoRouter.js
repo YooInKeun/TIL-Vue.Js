@@ -1,5 +1,6 @@
 import ToDoListView from '../../views/todo/ToDoListView.vue'
 import ToDoAddView from '../../views/todo/ToDoAddView.vue'
+import ToDoUpdateView from '../../views/todo/ToDoUpdateView.vue'
 
 const toDoRoutes = [
     {
@@ -8,13 +9,18 @@ const toDoRoutes = [
     },
     {
         path: '/todo/list',
-        name: 'ToDoListView',
+        name: 'toDoList',
         component: ToDoListView
     },
     {
         path: '/todo/add',
-        name: 'ToDoListView',
+        name: 'toDoAdd',
         component: ToDoAddView
+    },
+    {
+        path: '/todo/update',
+        name: 'toDoUpdate',
+        component: ToDoUpdateView
     }
 ]
 
