@@ -1,10 +1,14 @@
 <template>
   <div>
-    Parent counter : {{ counter }} <br>
-    <button @click="addCounter">+</button>
-    <button @click="subCounter">-</button>
-    <!-- Child 컴포넌트를 등록하고 counter 데이터 속성을 props로 전달한다. -->
-    <child v-bind:num="counter"></child>
+    <div>
+        <h1>Props 데이터 전달</h1>
+        Parent counter : {{ counter }} <br>
+        <button @click="addCounter">+</button>
+        <button @click="subCounter">-</button>
+        
+        <!-- Child 컴포넌트를 등록하고 counter 데이터 속성을 props로 전달한다. -->
+        <child v-bind:num="counter"></child>
+    </div>
   </div>
 </template>
 
@@ -13,7 +17,6 @@ import Child from "./Child.vue";
 
 export default {
   components: {
-    // Child 컴포넌트를 하위 컴포넌트로 등록
     child: Child
   },
   name: 'Parent',
