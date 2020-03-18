@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div v-if="drawer"> 이제 나를 볼 수 있어요 </div> <div v-else> 이제는 안보입니다 </div>
     <div v-for="(todo, index) in todos" :key="index">
       <ul>
         <li><h2>할 일 {{ index }} 번</h2></li>
@@ -17,6 +18,7 @@
     </div>
     <router-link to="/todo/add">등록</router-link>
   </div>
+
 </template>
 
 <script>
@@ -47,7 +49,8 @@ export default {
         }
       ],
       message: '안녕하세요',
-      reversedMessage: ''
+      reversedMessage: '',
+      drawer: true
     }
   },
   watch: {
@@ -64,6 +67,10 @@ export default {
   },
   created: function () {
     this.fetch_all_data();
+
+    this.$EventBus.$on('click-icon', () => { 
+      this.drawer = !this.drawer; 
+    });
   },
   methods: {
     fetch_all_data: function () {
