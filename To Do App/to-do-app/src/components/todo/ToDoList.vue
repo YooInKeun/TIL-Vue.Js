@@ -5,7 +5,12 @@
         <li><h2>할 일 {{ index }} 번</h2></li>
         <h3>제목: {{ todo.title }}</h3>
         <h3>내용: {{ todo.content }}</h3>
-        <h5>Reversed Title: {{ reversedTitle(todo.title) }}</h5>
+        <h5>Reversed Title(computed): {{ reversedTitle(todo.title) }}</h5><br>
+        
+        <input v-model="message">
+        <h5 v-model="message">Message : {{ message }}</h5>
+        <h5>Reversed Content(watch): {{ reversedMessage }}</h5>
+
       </ul>
       <button @click="moveToToDoUpdate(todo)">수정</button>
       <br>
@@ -40,13 +45,20 @@ export default {
           title: "장 보기",
           content: "고기"
         }
-      ]
+      ],
+      message: '안녕하세요',
+      reversedMessage: ''
+    }
+  },
+  watch: {
+    message: function (message) {
+      this.reversedMessage = message.split('').reverse().join('')
     }
   },
   computed: {
     reversedTitle() {
       return (title) => {
-        return title.split('').reverse().join('')
+        return title.split('').reverse().join('');
       } 
     }
   },
