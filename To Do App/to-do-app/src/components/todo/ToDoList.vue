@@ -3,8 +3,9 @@
     <div v-for="(todo, index) in todos" :key="index">
       <ul>
         <li><h2>할 일 {{ index }} 번</h2></li>
-       <h3>제목: {{ todo.title }}</h3>
-       <h3>내용: {{ todo.content }}</h3>
+        <h3>제목: {{ todo.title }}</h3>
+        <h3>내용: {{ todo.content }}</h3>
+        <h5>Reversed Title: {{ reversedTitle(todo.title) }}</h5>
       </ul>
       <button @click="moveToToDoUpdate(todo)">수정</button>
       <br>
@@ -42,8 +43,15 @@ export default {
       ]
     }
   },
-    created: function () {
-      this.fetch_all_data();
+  computed: {
+    reversedTitle() {
+      return (title) => {
+        return title.split('').reverse().join('')
+      } 
+    }
+  },
+  created: function () {
+    this.fetch_all_data();
   },
   methods: {
     fetch_all_data: function () {
@@ -65,5 +73,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
