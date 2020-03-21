@@ -15,10 +15,12 @@ Vue.js Study
 - router
 - event bus
 
+
 2. Counter App
 
 - Vuex 상태 관리
 - props
+
 
 3. Hacker News App
 
