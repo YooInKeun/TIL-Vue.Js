@@ -21,6 +21,7 @@ Vue.js Study
 
 ### 3. Hacker News App
 ```
-- 종합적인 Vue, Vuex 
-- Vue Project 구조 나누기
+- 1, 2번 프로젝트 개념 포함
+- API 호출부 분리
+- utils 기능 분리
 ```
