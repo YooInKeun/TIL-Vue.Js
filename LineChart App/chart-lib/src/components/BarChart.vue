@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Chart.js</h1>
-    <canvas id="myChart" width="400" height="400"></canvas>
+    <canvas id="barChart" width="400" height="400"></canvas>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import Chart from 'chart.js';
 
 export default {
   mounted() {
-    var ctx = document.getElementById('myChart');
+    var ctx = document.getElementById('barChart');
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
