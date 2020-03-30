@@ -1,15 +1,14 @@
 <template>
   <div>
+    <h2>LineChart</h2>
     <canvas ref="lineChart" id="lineChart"></canvas>
   </div>
 </template>
 
 <script>
-import Chart from 'chart.js';
-
 export default {
     mounted() {
-        var myChart = new Chart(this.$refs.lineChart, {
+        var myChart = new this.$_Chart(this.$refs.lineChart, {
             type: 'line',
             data: {
                 labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
