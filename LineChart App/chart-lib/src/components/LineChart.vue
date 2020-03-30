@@ -1,6 +1,6 @@
 <template>
   <div>
-    <canvas id="lineChart"></canvas>
+    <canvas ref="lineChart" id="lineChart"></canvas>
   </div>
 </template>
 
@@ -9,8 +9,7 @@ import Chart from 'chart.js';
 
 export default {
     mounted() {
-        var ctx = document.getElementById('lineChart');
-        var myChart = new Chart(ctx, {
+        var myChart = new Chart(this.$refs.lineChart, {
             type: 'line',
             data: {
                 labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
