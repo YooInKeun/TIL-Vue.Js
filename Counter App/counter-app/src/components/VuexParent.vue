@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import VuexChild from "./VuexChild.vue";
+import VuexChild from './VuexChild.vue'
 
 export default {
   components: {
@@ -23,12 +23,12 @@ export default {
     }
   },
   methods: {
-      addCounter() {
-          this.$store.state.counter++;
-      },
-      subCounter() {
-          this.$store.state.counter--;
-      },
+    addCounter () {
+      this.$store.state.counter++
+    },
+    subCounter () {
+      this.$store.state.counter--
+    }
   }
 }
 </script>

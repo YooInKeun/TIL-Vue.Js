@@ -8,13 +8,13 @@
 </template>
 
 <script>
-import Parent from "../../src/components/Parent.vue";
-import VuexParent from "../../src/components/VuexParent.vue";
+import Parent from '../../src/components/Parent.vue'
+import VuexParent from '../../src/components/VuexParent.vue'
 
 export default {
   components: {
     Parent,
     VuexParent
   }
-};
+}
 </script>
