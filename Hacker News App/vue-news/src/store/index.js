@@ -9,8 +9,8 @@ export const store = new Vuex.Store({
         news: []
     },
     mutations: {
-        SET_NEWS() {
-            
+        SET_NEWS(state, news) {
+            state.news = news;
         }
     },
     actions: {
@@ -18,7 +18,7 @@ export const store = new Vuex.Store({
             fetchNewsList()
                 .then(response => {
                     console.log(response.data);
-                    context.commit();
+                    context.commit('SET_NEWS', response.data);
                 })
                 .catch(error => {
                     console.log(error);
