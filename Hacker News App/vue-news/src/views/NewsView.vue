@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div v-for="(user, index) in this.$store.state.news" :key="index">
-            {{ user.title }}
+        <div v-for="(news, index) in this.$store.state.news" :key="index">
+            {{ news.title }}
         </div>
     </div>
 </template>
