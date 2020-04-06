@@ -4,7 +4,7 @@
             <a v-bind:href="item.url">
                 {{ item.title }}
             </a>
-            <small>{{ item.time_ago }} by {{ item.user }}</small>
+            <small>{{ item.time_ago }} by {{ item.user }}</small>s
         </p>
     </div>
 </template>
