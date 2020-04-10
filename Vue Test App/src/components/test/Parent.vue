@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Child from "./Child.vue"
+import Child from "./Child.vue";
 
 export default {
   components: {
@@ -22,9 +22,12 @@ export default {
     }
   },
   computed: {},
+  created() {
+    console.log(this.$on("child"));
+  },
   methods: {
     fromChildToParent(childData) {
-      alert("자식 컴포넌트 이벤트 발생");
+      alert("자식 컴포넌트 이벤트 감지");
       this.childData = childData;
     }
   }

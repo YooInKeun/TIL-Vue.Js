@@ -7,7 +7,12 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    testList: []
+    todos: [
+      {
+        title: "코딩",
+        content: "파이썬"
+      }
+    ]
   },
   // mutations,
   // actions,

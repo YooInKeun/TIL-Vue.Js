@@ -1,9 +1,9 @@
 <template>
   <div>
     <parent> </parent>
-    <br><br><br>
+    <br /><br /><br />
     <axios-test> </axios-test>
-    <br><br><br>
+    <br /><br /><br />
     <watch-test> </watch-test>
   </div>
 </template>
