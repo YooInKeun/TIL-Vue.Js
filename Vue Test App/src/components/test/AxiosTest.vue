@@ -5,34 +5,48 @@
     <div>
       콘솔을 확인하세요
     </div>
+    <div v-for="(user, index) in users" :key="index">
+      아이디: {{ user.user_id }}
+      이름: {{ user.user_name }}
+      나이: {{ user.age }}
+      전화번호: {{ user.tel }}
+    </div>
   </div>
 </template>
 
 <script>
-import axios from "axios";
-axios.defaults.baseURL = 'http://anylogic.iptime.org:8580/';
+import API from "../../api/index.js";
 
 export default {
   components: {},
   data() {
     return {
-      users: []
+      users: [],
+      conditions: {
+        user_id: "",
+        user_name: "",
+        age: "",
+        tel: "",
+        start_dt: "",
+        end_dt: "",
+        pageNum: 1,
+        pageCon: 10,
+        userSortDirection: "ASC",
+        userSortItem: "user_seq",
+        view_cnt: ""
+      }
     }
   },
   computed: {},
   methods: {
-    selectUser() {
-      var tmpCondition =
-        "?age=&end_dt=&pageCon=10&pageNum=1&start_dt=&tel=&userSortDirection=ASC&userSortItem=user_seq&user_id=&user_name=&view_cnt=";
-      axios
-        .get("chunjae/user/selectUser/" + tmpCondition)
-        .then(response => {
-          console.log("GET RES", response);
-          this.users = response.data.data.rows;
-        })
-        .catch(error => {
-          console.log("GET ERR", error);
-        })
+    async selectUser() {
+      try {
+        const response = await API().selectUser(this.conditions);
+        this.users = response.data.data.rows;
+        console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 };
