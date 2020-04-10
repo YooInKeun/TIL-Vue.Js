@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.child {
-  background-color: cyan;
+.axios {
+  // background-color: pink;
 }
 </style>
