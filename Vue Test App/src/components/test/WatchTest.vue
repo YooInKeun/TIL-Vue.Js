@@ -1,15 +1,26 @@
 <template>
   <div class="watch">
     <h1>Watch 테스트</h1>
-    <button @click="addToDo">추가하기</button>
+    <button @click="addToDo" class="component">this component</button>
+    <button @click="addComputedVuexToDo" class="computed-vuex">computed vuex</button>
+    <button v-on:click="increaseCount">Count Increase</button>
     <div>
       콘솔을 확인하세요
     </div>
-    <div v-for="(todo, index) in todos" :key="index">
+    <br />
+    <!-- this component data-->
+    <div v-for="(todo, index) in todos" :key="index" class="component">
       제목: {{ todo.title }}
-      <br>
+      <br />
       내용: {{ todo.content }}
     </div>
+    <!-- computed vuex data -->
+    <div v-for="(computedVuexTodo, index) in computedVuexTodos" :key="index" class="computed-vuex">
+      제목: {{ computedVuexTodo.title }}
+      <br />
+      내용: {{ computedVuexTodo.content }}
+    </div>
+    {{ counter }}
   </div>
 </template>
 
@@ -23,13 +34,29 @@ export default {
           title: "공부",
           content: "Vue.js"
         }
-      ]
+      ],
+      counter: 0
     }
   },
-  computed: {},
+  computed: {
+    computedVuexTodos() {
+      return this.$store.state.todos;
+    }
+  },
   watch: {
-    todos: function(){
-      console.log("todo 변화 감지");
+    // this component watch
+    todos() {
+      console.log("this component todos 변화 감지");
+    },
+    // computed된 vuex state watch
+    computedVuexTodos: function() {
+      console.log("computed된 vuex state todos 변화 감지");
+    },
+    // newVal, oldVal check
+    counter: function(newVal, oldVal) {
+      console.log('newVal : ' + newVal);
+      console.log('oldVal : ' + oldVal);
+    return this.counter;
     }
   },
   methods: {
@@ -39,7 +66,17 @@ export default {
         content: "축구"
       };
       this.todos.push(tmpTodo);
-    }
+    },
+    addComputedVuexToDo() {
+      var tmpTodo = {
+        title: "운동",
+        content: "축구"
+      };
+      this.$store.state.todos.push(tmpTodo);
+    },
+    increaseCount() {
+      this.counter++;
+    },
   }
 };
 </script>
@@ -47,5 +84,13 @@ export default {
 <style lang="scss" scoped>
 .watch {
 //   background-color: orange;
+}
+
+.component {
+  color: crimson;
+}
+
+.computed-vuex {
+  color: blue;
 }
 </style>
