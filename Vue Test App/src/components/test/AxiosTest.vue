@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import API from "../../api/index.js";
+// import API from "../../api/index.js";
 
 export default {
   components: {},
@@ -40,13 +40,13 @@ export default {
   computed: {},
   methods: {
     async selectUser() {
-      try {
-        const response = await API().selectUser(this.conditions);
-        this.users = response.data.data.rows;
-        console.log(response);
-      } catch (error) {
-        console.log(error);
-      }
+      // try {
+      //   const response = await API().selectUser("selectUser", this.conditions);
+      //   this.users = response.data.data.rows;
+      //   console.log(response);
+      // } catch (error) {
+      //   console.log(error);
+      // }
     }
   }
 };

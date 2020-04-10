@@ -51,12 +51,13 @@ export default {
     // computed된 vuex state watch
     computedVuexTodos: function() {
       console.log("computed된 vuex state todos 변화 감지");
+      console.log(this.computedVuexTodos);
     },
     // newVal, oldVal check
-    counter: function(newVal, oldVal) {
+    counter(newVal, oldVal) {
       console.log('newVal : ' + newVal);
       console.log('oldVal : ' + oldVal);
-    return this.counter;
+      return 10000;
     }
   },
   methods: {
@@ -75,6 +76,7 @@ export default {
       this.$store.state.todos.push(tmpTodo);
     },
     increaseCount() {
+        console.log(this.counter);
       this.counter++;
     },
   }

@@ -1,17 +1,34 @@
 import axios from "axios";
 import { makeQueryString } from "../utils/query.js";
 
-const config = {
-  baseUrl: "http://anylogic.iptime.org:8580/chunjae/user/"
-  // baseUrl: "http://192.168.0.86:8580/chunjae/user/"
+const userAPI = {
+  userAPI: (APIName, conditions) => {
+    return requestUser[APIName](conditions);
+  }
 };
 
-export default () => {
-  return {
-    selectUser: conditions => {
-      return axios.get(
-        `${config.baseUrl}selectUser/${makeQueryString(conditions)}`
-      );
-    }
-  };
+const config = {
+  baseUrl: "http://anylogic.iptime.org:8580/chunjae/user/"
 };
+
+const requestUser = {
+  selectUser: conditions => {
+    return axios.get(
+      `${config.baseUrl}selectUser/${makeQueryString(conditions)}`
+    );
+  },
+  selectUserOne: userSeqObj => {
+    return axios.get(
+      `${config.baseUrl}selectUserOne/${makeQueryString(userSeqObj)}`
+    );
+  },
+  updateUser: userFormData => {
+    return axios.post(`${config.baseUrl}updateUser/`, userFormData, {
+      headers: {
+        "Content-Type": "multipart/form-data"
+      }
+    });
+  }
+};
+
+export { userAPI };

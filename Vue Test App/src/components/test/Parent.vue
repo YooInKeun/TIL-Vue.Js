@@ -22,9 +22,6 @@ export default {
     }
   },
   computed: {},
-  created() {
-    console.log(this.$on("child"));
-  },
   methods: {
     fromChildToParent(childData) {
       alert("자식 컴포넌트 이벤트 감지");

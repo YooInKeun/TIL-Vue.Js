@@ -1,4 +1,4 @@
-import userAPI from "./userAPI.js";
+import { userAPI } from "./userAPI.js";
 
 const API = Object.assign(userAPI());
 
