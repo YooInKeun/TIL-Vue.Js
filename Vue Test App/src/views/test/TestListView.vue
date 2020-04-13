@@ -7,6 +7,8 @@
     <watch-test> </watch-test>
     <br /><br /><br />
     <dynamic-query> </dynamic-query>
+    <br /><br /><br />
+    <infinite-scroll> </infinite-scroll>
   </div>
 </template>
 
@@ -15,13 +17,15 @@ import Parent from "../../components/test/Parent.vue";
 import AxiosTest from "../../components/test/AxiosTest.vue";
 import WatchTest from "../../components/test/WatchTest.vue";
 import DynamicQuery from "../../components/test/DynamicQuery.vue";
+import InfiniteScroll from "../../components/test/InfiniteScroll.vue";
 
 export default {
   components: {
     Parent,
     AxiosTest,
     WatchTest,
-    DynamicQuery
+    DynamicQuery,
+    InfiniteScroll
   },
   data() {
     return {}
