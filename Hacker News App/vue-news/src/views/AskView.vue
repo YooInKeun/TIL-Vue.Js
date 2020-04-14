@@ -1,10 +1,10 @@
 <template>
     <div>
         <p v-for="(item, index) in fetchedAsks" :key="index">
-            <a v-bind:href="item.url">
+            <router-link v-bind:to="`item/${item.id}`">
                 {{ item.title }}
-            </a>
-            <small>{{ item.time_ago }} by {{ item.user }}</small>s
+            </router-link>
+            <small>{{ item.time_ago }} by {{ item.user }}</small>
         </p>
     </div>
 </template>

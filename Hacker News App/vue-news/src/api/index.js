@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const config = {
     baseUrl: 'https://api.hnpwa.com/v0/',
-    userBaseUrl: 'https://hacker-news.firebaseio.com/v0/'
+    subUrl: 'https://hacker-news.firebaseio.com/v0/'
 }
 
 function fetchNewsList() {
@@ -18,12 +18,17 @@ function fetchJobsList() {
 }
 
 function fetchUserInfo(userName) {
-    return axios.get(`${config.userBaseUrl}/user/${userName}.json`);
+    return axios.get(`${config.subUrl}/user/${userName}.json`);
+}
+
+function fetchItemInfo(itemId) {
+    return axios.get(`${config.subUrl}/item/${itemId}.json`);
 }
 
 export {
     fetchNewsList,
     fetchAsksList,
     fetchJobsList,
-    fetchUserInfo
+    fetchUserInfo,
+    fetchItemInfo
 }
