@@ -15,12 +15,21 @@
     <button @click="reverseMessage">메세지 뒤집기</button>
     <br/>
     <input v-model="message">
+    <h2>Parent Counter: {{ counter }}</h2>
+    <button @click="addCounter">+</button>
+    <button @click="subCounter">-</button>
+    <child v-bind:num="counter"></child>
   </div>
 </template>
 
 <script>
+import Child from './Child.vue'
+
 export default {
   name: "Tutorial",
+  components: {
+    Child
+  },
   data: () => {
     return {
       timestampMessage: '이 페이지는 ' + new Date() + ' 에 로드 되었습니다!',
@@ -30,7 +39,8 @@ export default {
         { id: 2, text: 'vue 문법 한 cycle 돌기' },
         { id: 3, text: '졸린데 오늘은 이만 잘까?' }
       ],
-      message: '버튼을 클릭하면 메세지가 뒤집어집니다!'
+      message: '버튼을 클릭하면 메세지가 뒤집어집니다!',
+      counter: 0
     };
   },
   methods: {
@@ -42,6 +52,12 @@ export default {
     },
     reverseMessage() {
       this.message = this.message.split('').reverse().join('')
+    },
+    addCounter() {
+      this.counter++;
+    },
+    subCounter() {
+      this.counter--;
     }
   }
 }
