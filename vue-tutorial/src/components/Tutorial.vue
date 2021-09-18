@@ -13,6 +13,8 @@
     </ol>
     <h2>{{ message }}</h2>
     <button @click="reverseMessage">메세지 뒤집기</button>
+    <br/>
+    <input v-model="message">
   </div>
 </template>
 
