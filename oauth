@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>TEST</h1>
+    <input type="button" id="login" value="Login Page" />
+</body>
+</html>
+
+<script>
+    console.log(document)
+
+    const loginPageRequest = () => {
+        const loginPageRequest = new XMLHttpRequest();
+        loginPageRequest.open('GET', 'http://localhost:8080');
+        loginPageRequest.onload = function () {
+            const loginWindow = window.open("", "new window", "width=400, height=400");
+            loginWindow.document.write(loginPageRequest.responseText);
+        }
+        loginPageRequest.send();
+    }
+
+    document.getElementById('login').addEventListener('click', loginPageRequest)
+</script>
